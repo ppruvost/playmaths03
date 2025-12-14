@@ -97,6 +97,23 @@ body{
   font-size:1.15rem;
 }
 
+/* ===========================
+   🔧 GRAPHIQUE
+   =========================== */
+#graphique-container{
+  display:none;               /* activé via JS seulement si image */
+  margin: 12px auto 18px;
+  text-align:center;
+}
+
+#graphique-container img{
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+  border:1px solid #d0d0d0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
 /* ANSWER GRID */
 .answer-grid{
   display:grid;
@@ -144,10 +161,6 @@ body{
 
 /* interactions */
 .answer:hover{ filter:brightness(1.06); transform:translateY(-3px); }
-.answer.selected{
-  outline:4px solid rgba(0,0,0,0.12);
-  transform:scale(1.02);
-}
 
 /* result borders */
 .answer-correct{
@@ -172,30 +185,23 @@ body{
   margin-top:14px;
   font-weight:700;
 }
+
+/* BONUS */
 .playmaths-bonus {
   position: absolute;
   font-size: 28px;
   font-weight: bold;
   color: #27ae60;
   opacity: 0;
-  transform: scale(0.5) translateY(0px);
+  transform: scale(0.5);
   pointer-events: none;
   animation: bonusPop 1s ease-out forwards;
 }
 
 @keyframes bonusPop {
-  0% {
-    opacity: 0;
-    transform: scale(0.4) translateY(0px);
-  }
-  30% {
-    opacity: 1;
-    transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1) translateY(-50px);
-  }
+  0% { opacity: 0; transform: scale(0.4); }
+  30% { opacity: 1; transform: scale(1.2) translateY(-10px); }
+  100% { opacity: 0; transform: scale(1) translateY(-50px); }
 }
 
 /* responsive */
