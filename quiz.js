@@ -11,12 +11,15 @@ let startTime = 0;
 let playMathsPoints = 0;
 // <<< FIN BONUS >>>
 
-// éléments DOM
+// ==============================
+//      ÉLÉMENTS DOM
+// ==============================
 const startBtn = document.getElementById("startQuiz");
 const nomInput = document.getElementById("nom");
 const prenomInput = document.getElementById("prenom");
 
 const questionBox = document.getElementById("questionBox");
+const graphiqueDiv = document.getElementById("graphique-container");
 const answerGrid = document.getElementById("answerGrid");
 const explanationBox = document.getElementById("explanationBox");
 const timerNumber = document.getElementById("timerNumber");
@@ -25,7 +28,9 @@ const scoreBox = document.getElementById("scoreBox");
 const victorySound = document.getElementById("victorySound");
 const bgMusic = document.getElementById("bgMusic");
 
-// Mélange
+// ==============================
+//           MÉLANGE
+// ==============================
 function shuffleArray(arr) {
   return arr.slice().sort(() => Math.random() - 0.5);
 }
@@ -44,13 +49,11 @@ function showBonusAnimation(bonus, element) {
 
   document.body.appendChild(bonusDiv);
 
-  setTimeout(() => {
-    bonusDiv.remove();
-  }, 1000);
+  setTimeout(() => bonusDiv.remove(), 1000);
 }
 
 // ==============================
-//        DÉMARRAGE
+//            DÉMARRAGE
 // ==============================
 startBtn.addEventListener("click", () => {
   const nom = nomInput.value.trim();
@@ -80,7 +83,7 @@ startBtn.addEventListener("click", () => {
 });
 
 // ==============================
-//       AFFICHE QUESTION
+//        AFFICHE QUESTION
 // ==============================
 function showQuestion() {
   clearTimer();
@@ -91,26 +94,43 @@ function showQuestion() {
     return;
   }
 
+  // TEXTE QUESTION
   questionBox.textContent = `${current + 1}. ${q.question}`;
+
+  // RESET
   explanationBox.style.display = "none";
   explanationBox.innerHTML = "";
   answerGrid.innerHTML = "";
 
+  // ===== GRAPHIQUE =====
+  graphiqueDiv.innerHTML = "";
+  graphiqueDiv.style.display = "none";
+
+  if (q.graphique) {
+    const img = document.createElement("img");
+    img.src = q.graphique;
+    img.alt = "Graphique de la question";
+    img.onload = () => {
+      graphiqueDiv.style.display = "block";
+    };
+    graphiqueDiv.appendChild(img);
+  }
+
+  // ===== RÉPONSES =====
   const colors = ["red", "blue", "yellow", "green"];
   q.options.forEach((opt, idx) => {
     const d = document.createElement("div");
     d.className = `answer ${colors[idx % colors.length]}`;
     d.textContent = opt;
-
     d.addEventListener("click", () => handleAnswer(opt, d));
-
     answerGrid.appendChild(d);
   });
 
   startTime = Date.now();
   startTimer();
 
-  scoreBox.textContent = `Score : ${score} / ${shuffledQuestions.length} — Play Maths : ${playMathsPoints} pts`;
+  scoreBox.textContent =
+    `Score : ${score} / ${shuffledQuestions.length} — Play Maths : ${playMathsPoints} pts`;
 }
 
 // ==============================
@@ -128,26 +148,21 @@ function handleAnswer(option, selectedDiv) {
   const isCorrect = option === correct;
 
   if (isCorrect) {
-    if (selectedDiv) selectedDiv.classList.add("answer-correct");
+    selectedDiv.classList.add("answer-correct");
     score++;
 
-    // BONUS PLAY MATHS
     const timeTaken = (Date.now() - startTime) / 1000;
     let bonus = 0;
-
     if (timeTaken < 2) bonus = 5;
     else if (timeTaken < 5) bonus = 3;
     else if (timeTaken < 10) bonus = 1;
 
-    bonus *= 10;       // multiplicateur ×10
+    bonus *= 10;
     playMathsPoints += bonus;
-
-    // 🎉 Animation bonus
     showBonusAnimation(bonus, selectedDiv);
 
   } else {
-    if (selectedDiv) selectedDiv.classList.add("answer-wrong");
-
+    selectedDiv.classList.add("answer-wrong");
     document.querySelectorAll(".answer").forEach(a => {
       if (a.textContent.trim() === String(correct).trim()) {
         a.classList.add("answer-correct");
@@ -161,11 +176,7 @@ function handleAnswer(option, selectedDiv) {
   scoreBox.textContent =
     `Score : ${score} / ${shuffledQuestions.length} — Play Maths : ${playMathsPoints} pts`;
 
-  setTimeout(() => {
-    current++;
-    if (current < shuffledQuestions.length) showQuestion();
-    else endQuiz();
-  }, 9000);
+  setTimeout(nextQuestion, 9000);
 }
 
 // ==============================
@@ -187,14 +198,16 @@ function forceTimeout() {
   explanationBox.innerHTML = `<strong>Explication :</strong> ${q.explication || ""}`;
   explanationBox.style.display = "block";
 
-  scoreBox.textContent =
-    `Score : ${score} / ${shuffledQuestions.length} — Play Maths : ${playMathsPoints} pts`;
+  setTimeout(nextQuestion, 9000);
+}
 
-  setTimeout(() => {
-    current++;
-    if (current < shuffledQuestions.length) showQuestion();
-    else endQuiz();
-  }, 9000);
+// ==============================
+//       QUESTION SUIVANTE
+// ==============================
+function nextQuestion() {
+  current++;
+  if (current < shuffledQuestions.length) showQuestion();
+  else endQuiz();
 }
 
 // ==============================
@@ -202,14 +215,11 @@ function forceTimeout() {
 // ==============================
 function startTimer() {
   timeLeft = 30;
-
   const radius = 35;
   const circumference = 2 * Math.PI * radius;
 
   timerCircle.style.strokeDasharray = `${circumference}`;
   timerCircle.style.strokeDashoffset = "0";
-  timerCircle.style.stroke = "#e0e0e0";
-
   timerNumber.textContent = timeLeft;
 
   timerInterval = setInterval(() => {
@@ -218,7 +228,6 @@ function startTimer() {
 
     const offset = circumference - (timeLeft / 30) * circumference;
     timerCircle.style.strokeDashoffset = offset;
-
     timerCircle.style.stroke = timeLeft <= 10 ? "#f39c12" : "#3498db";
 
     if (timeLeft <= 0) {
@@ -234,24 +243,19 @@ function clearTimer() {
 }
 
 // ==============================
-//       FIN DU QUIZ
+//         FIN DU QUIZ
 // ==============================
 function endQuiz() {
-
   clearTimer();
 
   if (bgMusic) {
-    try {
-      bgMusic.pause();
-      bgMusic.currentTime = 0;
-    } catch (e) {}
+    bgMusic.pause();
+    bgMusic.currentTime = 0;
   }
-  if (victorySound) {
-    victorySound.play().catch(() => {});
-  }
+  if (victorySound) victorySound.play().catch(() => {});
 
   try {
-    confetti && confetti({
+    confetti({
       particleCount: 150,
       spread: 100,
       origin: { y: 0.6 }
@@ -268,6 +272,7 @@ Note : ${noteSur20}/20
 Play Maths : ${playMathsPoints} points 🎉`;
 
   answerGrid.innerHTML = "";
+  graphiqueDiv.innerHTML = "";
   explanationBox.style.display = "none";
 
   scoreBox.textContent =
