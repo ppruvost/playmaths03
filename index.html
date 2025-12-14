@@ -4,45 +4,36 @@
   <meta charset="utf-8">
   <title>Quiz Play Maths</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
-
     #graphique-container img {
       max-width: 100%;
       margin: 15px 0;
       border: 1px solid #ccc;
       border-radius: 6px;
     }
-
-    .option {
-      display: block;
-      margin: 8px 0;
-      padding: 10px;
-      background: #f2f2f2;
-      border-radius: 5px;
-      cursor: pointer;
-    }
   </style>
 </head>
 
 <body>
 
-  <h1>Quiz Play Maths</h1>
+<h1>Quiz Play Maths</h1>
 
-  <div id="question"></div>
-  <div id="graphique-container"></div>
-  <div id="options"></div>
-  <div id="explication"></div>
+<!-- FORMULAIRE DE DÉMARRAGE -->
+<div id="userForm">
+  <input id="nom" placeholder="Nom">
+  <input id="prenom" placeholder="Prénom">
+  <button id="startQuiz">Commencer le quiz</button>
+</div>
 
-  <!-- ⚠️ ORDRE CRITIQUE -->
-  <script src="questions.js" defer></script>
-  <script src="quiz.js" defer></script>
+<!-- SCORE -->
+<div id="scoreBox"></div>
 
-</body>
-</html>
+<!-- TIMER -->
+<div id="timer">
+  <svg width="80" height="80">
+    <circle id="timer-circle"
+            cx="40" cy="40" r="35"
+            stroke-width="6"
+            fill="none"/>
