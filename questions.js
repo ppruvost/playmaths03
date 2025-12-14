@@ -17,7 +17,7 @@ const questions = [
   },
   {
     question: "Quel type de fonction est représenté sur le graphique ci-dessous ?",
-    graphique: "./graphique1.png",
+    graphique: "graphique1.png",
     options: ["affine", "linéaire", "constante", "décroissante"],
     bonne_reponse: "linéaire",
     explication: "La droite passe par l’origine : c’est une fonction linéaire."
@@ -36,14 +36,14 @@ const questions = [
   },
   {
     question: "La fonction représentée sur ce graphique est :",
-    graphique: "./graphique2.png",
+    graphique: "graphique2.png",
     options: ["décroissante", "constante", "croissante", "négative"],
     bonne_reponse: "croissante",
     explication: "La droite monte de gauche à droite."
   },
   {
     question: "Que peut-on dire de la fonction représentée sur ce graphique ?",
-    graphique: "./graphique3.png",
+    graphique: "graphique3.png",
     options: [
       "Elle est croissante",
       "Elle est constante",
@@ -67,7 +67,7 @@ const questions = [
   },
   {
     question: "Quelle est la valeur de la fonction lorsque x = 0 sur ce graphique ?",
-    graphique: "./graphique2.png",
+    graphique: "graphique2.png",
     options: ["0", "2", "5", "10"],
     bonne_reponse: "5",
     explication: "La droite coupe l’axe des ordonnées en 5."
@@ -75,7 +75,7 @@ const questions = [
 	
   {
     question: "Quel graphique représente une fonction constante ?",
-    graphique: "./graphique4.png",
+    graphique: "graphique4.png",
     options: [
       "Une droite oblique",
       "Une parabole",
@@ -93,7 +93,7 @@ const questions = [
   },
   {
     question: "Ce graphique peut modéliser :",
-    graphique: "./graphique3.png",
+    graphique: "graphique3.png",
     options: [
       "Un stock qui augmente",
       "Un stock qui diminue",
