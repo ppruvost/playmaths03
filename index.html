@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Quiz avec graphiques</title>
+  <title>Quiz Play Maths</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -33,20 +33,16 @@
 
 <body>
 
-  <h1>Quiz</h1>
+  <h1>Quiz Play Maths</h1>
 
-  <!-- Question -->
   <div id="question"></div>
-
-  <!-- Graphique (1, 2, 3 ou 4) -->
   <div id="graphique-container"></div>
-
-  <!-- Réponses -->
   <div id="options"></div>
-
-  <!-- Feedback -->
   <div id="explication"></div>
 
-  <script src="quiz.js"></script>
+  <!-- ⚠️ ORDRE CRITIQUE -->
+  <script src="questions.js" defer></script>
+  <script src="quiz.js" defer></script>
+
 </body>
 </html>
