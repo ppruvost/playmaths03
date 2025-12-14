@@ -4,126 +4,149 @@
 
 const questions = [
   {
-    question: "Lorsqu’un tissu glisse sur une table de coupe horizontale, la force qui s’oppose au mouvement est :",
-    options: ["la gravité", "la poussée d’Archimède", "le frottement", "la force magnétique"],
-    bonne_reponse: "le frottement",
-    explication: "Le frottement entre le tissu et la table ralentit le mouvement."
+    question: "Une fonction f(x) = -4x + 20 modélise une quantité de stock. Cette fonction est :",
+    options: ["croissante", "constante", "décroissante", "linéaire"],
+    bonne_reponse: "décroissante",
+    explication: "Le coefficient directeur est négatif, donc la fonction est décroissante."
   },
   {
-    question: "Sur un plan incliné, un rouleau de tissu a tendance à :",
-    options: ["rester immobile", "monter seul", "descendre la pente", "tourner sur lui-même sans bouger"],
-    bonne_reponse: "descendre la pente",
-    explication: "La composante du poids parallèle au plan l'entraîne vers le bas."
+    question: "Le coût C (en €) d’une fabrication est donné par C = 100 + 5x. Que représente 100 ?",
+    options: ["le coût variable", "le coût par unité", "le coût fixe", "le bénéfice"],
+    bonne_reponse: "le coût fixe",
+    explication: "Le terme constant représente un coût indépendant du nombre de pièces."
   },
   {
-    question: "Quand une couturière pousse un chariot de matériel sur un sol horizontal, le mouvement commence seulement si :",
-    options: ["la poussée est nulle", "la poussée est plus forte que les frottements", "la poussée est égale aux frottements", "les frottements sont plus forts"],
-    bonne_reponse: "la poussée est plus forte que les frottements",
-    explication: "Il faut dépasser les frottements pour mettre le chariot en mouvement."
+    question: "Quel type de fonction est représenté sur le graphique ci-dessous ?",
+    graphique: "graphique1.png",
+    options: ["affine", "linéaire", "constante", "décroissante"],
+    bonne_reponse: "linéaire",
+    explication: "La droite passe par l’origine : c’est une fonction linéaire."
   },
   {
-    question: "Plus un plan est incliné, plus un rouleau de tissu :",
-    options: ["ralentit", "s’arrête", "accélère", "reste immobile"],
-    bonne_reponse: "accélère",
-    explication: "L’inclinaison augmente la composante du poids qui fait accélérer l’objet."
+    question: "La fonction f(x) = -2x est :",
+    options: ["affine", "linéaire et décroissante", "constante", "croissante"],
+    bonne_reponse: "linéaire et décroissante",
+    explication: "Elle est de la forme ax avec a négatif."
   },
   {
-    question: "Sur un plan horizontal, un objet continue son mouvement si :",
-    options: ["une force continue agit sur lui", "une force arrête d’agir sur lui", "aucune force ne s’applique", "les frottements augmentent"],
-    bonne_reponse: "une force continue agit sur lui",
-    explication: "Les frottements l’arrêtent si aucune force ne compense."
+    question: "Une droite passe par l’origine du repère. La fonction associée est :",
+    options: ["affine", "linéaire", "constante", "quadratique"],
+    bonne_reponse: "linéaire",
+    explication: "Une fonction linéaire passe toujours par l’origine."
   },
   {
-    question: "Lorsqu’un rouleau de tissu roule moins bien sur une surface rugueuse, c’est parce que :",
-    options: ["la gravité augmente", "le frottement augmente", "la masse diminue", "la vitesse augmente"],
-    bonne_reponse: "le frottement augmente",
-    explication: "Une surface rugueuse crée davantage de frottement."
+    question: "La fonction représentée sur ce graphique est :",
+    graphique: "graphique2.png",
+    options: ["décroissante", "constante", "croissante", "négative"],
+    bonne_reponse: "croissante",
+    explication: "La droite monte de gauche à droite."
   },
   {
-    question: "Pour faciliter le déplacement d’un mannequin de couture, on peut :",
-    options: ["augmenter le frottement", "réduire le frottement", "le poser sur un plan incliné", "augmenter sa masse"],
-    bonne_reponse: "réduire le frottement",
-    explication: "Des roulettes ou un sol lisse réduisent les frottements."
+    question: "Que peut-on dire de la fonction représentée sur ce graphique ?",
+    graphique: "graphique3.png",
+    options: [
+      "Elle est croissante",
+      "Elle est constante",
+      "Elle est décroissante",
+      "Elle est linéaire"
+    ],
+    bonne_reponse: "Elle est décroissante",
+    explication: "La pente est négative : la fonction diminue quand x augmente."
   },
   {
-    question: "Lorsqu’on tire un tissu sur un plan incliné pour le remonter, il faut fournir :",
-    options: ["moins de force", "autant de force que son poids total", "une force supérieure au poids projeté sur la pente", "aucune force"],
-    bonne_reponse: "une force supérieure au poids projeté sur la pente",
-    explication: "Il faut compenser la partie du poids qui tire l’objet vers le bas."
+    question: "La distance parcourue par un véhicule est donnée par d(x) = 60x. Si x augmente, la distance :",
+    options: ["reste constante", "diminue", "augmente", "devient négative"],
+    bonne_reponse: "augmente",
+    explication: "Le coefficient est positif, donc la fonction est croissante."
   },
   {
-    question: "Un mannequin de couture reste immobile sur un plan horizontal lorsque :",
-    options: ["les forces sont équilibrées", "la poussée est plus forte que les frottements", "le poids augmente", "le sol est glissant"],
-    bonne_reponse: "les forces sont équilibrées",
-    explication: "Si aucune force ne l'entraîne, il reste immobile."
+    question: "Sur un graphique, une droite monte de gauche à droite. La fonction associée est :",
+    options: ["décroissante", "croissante", "constante", "nulle"],
+    bonne_reponse: "croissante",
+    explication: "Quand la droite monte de gauche à droite, la fonction est croissante."
   },
   {
-    question: "Lorsque l’on incline légèrement la table de repassage, un fer posé dessus :",
-    options: ["reste forcément immobile", "se déplace selon l’inclinaison", "monte la pente", "tourne sur lui-même"],
-    bonne_reponse: "se déplace selon l’inclinaison",
-    explication: "La composante du poids le fait glisser vers le bas."
+    question: "Quelle est la valeur de la fonction lorsque x = 0 sur ce graphique ?",
+    graphique: "graphique2.png",
+    options: ["0", "2", "5", "10"],
+    bonne_reponse: "5",
+    explication: "La droite coupe l’axe des ordonnées en 5."
+  },
+	
+  {
+    question: "Quel graphique représente une fonction constante ?",
+    graphique: "graphique4.png",
+    options: [
+      "Une droite oblique",
+      "Une parabole",
+      "Une droite horizontale",
+      "Une courbe"
+    ],
+    bonne_reponse: "Une droite horizontale",
+    explication: "La valeur de la fonction ne change pas."
   },
   {
-    question: "Si un chariot chargé de tissus a du mal à démarrer, c’est généralement parce que :",
-    options: ["sa masse est faible", "les frottements statiques sont élevés", "la roue est trop légère", "la pente est trop faible"],
-    bonne_reponse: "les frottements statiques sont élevés",
-    explication: "Le frottement statique s’oppose au début du mouvement."
+    question: "Résoudre l’équation 2x + 4 = 10 donne :",
+    options: ["x = 2", "x = 3", "x = 4", "x = 5"],
+    bonne_reponse: "x = 3",
+    explication: "On soustrait 4 puis on divise par 2."
   },
   {
-    question: "Plus la masse d’un rouleau de tissu est grande, plus :",
-    options: ["il glisse facilement", "il accélère vite sur un plan horizontal", "il est difficile à mettre en mouvement", "il est insensible au frottement"],
-    bonne_reponse: "il est difficile à mettre en mouvement",
-    explication: "Une masse plus grande demande plus de force pour dépasser les frottements."
+    question: "Ce graphique peut modéliser :",
+    graphique: "graphique3.png",
+    options: [
+      "Un stock qui augmente",
+      "Un stock qui diminue",
+      "Un prix fixe",
+      "Une vitesse constante"
+    ],
+    bonne_reponse: "Un stock qui diminue",
+    explication: "La fonction décroît avec le temps."
   },
   {
-    question: "Quand un tissu est tiré avec une force constante sur une table horizontale, la vitesse devient constante lorsque :",
-    options: ["la force devient nulle", "la force est égale au frottement dynamique", "la masse augmente", "le plan est incliné"],
-    bonne_reponse: "la force est égale au frottement dynamique",
-    explication: "L’équilibre des forces donne un mouvement à vitesse constante."
+    question: "Une fonction f(x) = 2x + 5 est représentée par un graphique. Que représente le nombre 5 ?",
+    options: ["le coefficient directeur", "l’ordonnée à l’origine", "la pente", "l’abscisse"],
+    bonne_reponse: "l’ordonnée à l’origine",
+    explication: "L’ordonnée à l’origine est la valeur de la fonction pour x = 0."
   },
   {
-    question: "Sur un plan incliné, un rouleau de tissu plus lourd :",
-    options: ["descend plus lentement", "descend à la même accélération (hors frottements)", "reste immobile", "monte la pente"],
-    bonne_reponse: "descend à la même accélération (hors frottements)",
-    explication: "Sans frottements, la masse n’influence pas l’accélération d’une chute ou d’une descente."
+    question: "Résoudre l’équation 3x = 15 donne :",
+    options: ["x = 3", "x = 5", "x = 15", "x = 45"],
+    bonne_reponse: "x = 5",
+    explication: "On divise les deux membres par 3 : x = 15 ÷ 3."
   },
   {
-    question: "Pour empêcher un mannequin de glisser sur un plan incliné, il faut :",
-    options: ["réduire les frottements", "ajouter un revêtement antidérapant", "soulever le mannequin", "augmenter l’inclinaison"],
-    bonne_reponse: "ajouter un revêtement antidérapant",
-    explication: "Cela augmente les frottements et empêche le glissement."
+    question: "Résoudre l’inéquation x + 5 ≥ 12 donne :",
+    options: ["x ≤ 7", "x ≥ 7", "x = 7", "x ≤ 12"],
+    bonne_reponse: "x ≥ 7",
+    explication: "On soustrait 5 aux deux membres."
   },
   {
-    question: "Quand on pousse un chariot de couture en descente, celui-ci accélère car :",
-    options: ["le poids aide au mouvement", "le poids s’annule", "les frottements disparaissent", "la masse diminue"],
-    bonne_reponse: "le poids aide au mouvement",
-    explication: "La composante du poids dans la pente augmente la force qui fait avancer le chariot."
+    question: "Résoudre l’inéquation 4x < 20 donne :",
+    options: ["x < 4", "x > 4", "x < 5", "x > 5"],
+    bonne_reponse: "x < 5",
+    explication: "On divise les deux membres par 4."
   },
   {
-    question: "Une boîte de bobines placée sur une table inclinée reste immobile si :",
-    options: ["la pente est très forte", "le frottement est supérieur à la force qui la fait glisser", "la masse est faible", "le poids est nul"],
-    bonne_reponse: "le frottement est supérieur à la force qui la fait glisser",
-    explication: "Si les frottements sont trop forts, l’objet n'est pas entraîné."
+    question: "Une fonction f(x) = 7 est représentée graphiquement par :",
+    options: ["une droite oblique", "une parabole", "une droite horizontale", "une courbe"],
+    bonne_reponse: "une droite horizontale",
+    explication: "La fonction est constante : sa valeur ne dépend pas de x."
   },
   {
-    question: "Si l’on réduit les frottements entre un tissu et une table (par exemple en utilisant du papier sulfurisé), alors :",
-    options: ["il devient plus difficile à déplacer", "il glisse plus facilement", "il ne peut plus s’arrêter", "il devient plus lourd"],
-    bonne_reponse: "il glisse plus facilement",
-    explication: "Réduire les frottements diminue la force nécessaire au mouvement."
+    question: "La fonction f(x) = 0,5x + 2 est :",
+    options: ["décroissante", "constante", "croissante", "négative"],
+    bonne_reponse: "croissante",
+    explication: "Le coefficient directeur est positif."
   },
   {
-    question: "Sur un sol rugueux, un mannequin à roulettes aura tendance à :",
-    options: ["aller plus vite", "ralentir", "ne pas subir de frottements", "se soulever légèrement"],
-    bonne_reponse: "ralentir",
-    explication: "Le sol rugueux augmente le frottement et freine le mouvement."
-  },
-  {
-    question: "Si l’on pousse un chariot de couture vers le haut d’une rampe, il finira par s’arrêter car :",
-    options: ["sa masse augmente", "la gravité s’oppose au mouvement", "les frottements disparaissent", "la pente devient horizontale"],
-    bonne_reponse: "la gravité s’oppose au mouvement",
-    explication: "Le poids agit vers le bas et freine le chariot jusqu'à l'arrêt."
+    question: "Si une fonction modélise un stock qui baisse chaque jour, elle est plutôt :",
+    options: ["croissante", "constante", "décroissante", "linéaire croissante"],
+    bonne_reponse: "décroissante",
+    explication: "La quantité diminue au fil du temps."
   }
 ];
+
 /* ============================================================
    ====================  FIN DES QUESTIONS  ==================
    ============================================================ */
